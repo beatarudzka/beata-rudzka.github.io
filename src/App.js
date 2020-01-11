@@ -15,8 +15,8 @@ function App() {
       <Sidebar />
       <Header />
       <About />
-      <Projects />
       <Skills />
+      <Projects />
       <Footer />
     </div>
   )
