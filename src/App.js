@@ -5,14 +5,16 @@ import Sidebar from './components/Sidebar/Sidebar'
 import Projects from './components/Projects/Projects'
 import Skills from './components/Skills/Skills'
 import Footer from './components/Footer/Footer'
+import About from './components/About/About'
 
 import './dist/main.css'
 
 function App() {
   return (
-    <div >
-      <Header />
+    <div className="container">
       <Sidebar />
+      <Header />
+      <About />
       <Projects />
       <Skills />
       <Footer />
