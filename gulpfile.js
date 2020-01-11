@@ -1,136 +1,70 @@
-const gulp = require('gulp')
+// Initialize modules
+// Importing specific gulp API functions lets us write them below as series() instead of gulp.series()
+const { src, dest, watch, series, parallel } = require('gulp');
+// Importing all the Gulp-related packages we want to use
+const sourcemaps = require('gulp-sourcemaps');
+const sass = require('gulp-sass');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
+var replace = require('gulp-replace');
 
-const sass = require('gulp-sass')
-const minifyCSS = require('gulp-clean-css')
-const uglify = require('gulp-uglify')
-const rename = require('gulp-rename')
-const changed = require('gulp-changed')
 
+// File paths
+const files = {
+  scssPath: 'Assets/scss/**/*.scss',
+  jsPath: 'Assets/js/**/*.js'
+}
 
-const SCSS_SRC = './src/Assets/scss/**/*.scss'
-const SCSS_DEST = './src/Assets/css'
-
-
+// Sass task: compiles the style.scss file into style.css
 function scssTask() {
-  return gulp.src(SCSS_SRC)
-    .pipe(sass().on('error', sass.logError))
-    .pipe(minifyCSS())
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(changed(SCSS_DEST))
-    .pipe(gulp.dest(SCSS_DEST))
+  return src(files.scssPath)
+    .pipe(sourcemaps.init()) // initialize sourcemaps first
+    .pipe(sass()) // compile SCSS to CSS
+    .pipe(postcss([autoprefixer(), cssnano()])) // PostCSS plugins
+    .pipe(sourcemaps.write('.')) // write sourcemaps file in current directory
+    .pipe(dest('./src/dist')
+    ); // put final CSS in dist folder
 }
 
+// JS task: concatenates and uglifies JS files to script.js
+function jsTask() {
+  return src([
+    files.jsPath
+    //,'!' + 'includes/js/jquery.min.js', // to exclude any specific files
+  ])
+    .pipe(concat('all.js'))
+    .pipe(uglify())
+    .pipe(dest('./src/dist')
+    );
+}
+
+// Cachebust
+var cbString = new Date().getTime();
+function cacheBustTask() {
+  return src(['./public/index.html'])
+    .pipe(replace(/cb=\d+/g, 'cb=' + cbString))
+    .pipe(dest('.'));
+}
+
+// Watch task: watch SCSS and JS files for changes
+// If any change, run scss and js tasks simultaneously
 function watchTask() {
-  gulp.watch(
-    [SCSS_SRC],
-    gulp.parallel(scssTask)
-  )
+  watch([files.scssPath, files.jsPath],
+    series(
+      parallel(scssTask, jsTask),
+      cacheBustTask
+    )
+  );
 }
 
-exports.default = gulp.series(
-  gulp.parallel(scssTask),
-  watchTask)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Export the default Gulp task so it can be run
+// Runs the scss and js tasks simultaneously
+// then runs cacheBust, then watch task
+exports.default = series(
+  parallel(scssTask, jsTask),
+  cacheBustTask,
+  watchTask
+)
