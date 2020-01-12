@@ -4,7 +4,9 @@ import React from 'react'
 function Footer() {
   return (
     <div className="footer">
-      Footer
+      <p className="copyright">
+        &copy; Copyright 2020 by Beata Rudzka.
+      </p>
     </div>
   )
 }
