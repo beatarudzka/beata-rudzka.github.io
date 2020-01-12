@@ -20,6 +20,8 @@ function Projects() {
         <p className="project__skill">CSS</p>
         <p className="project__skill">JavaScript</p>
         <p className="project__skill">Bootstrap</p>
+        <button className="btn btn--github">GitHub</button>
+        <button className="btn btn--demo">Podgląd</button>
       </div>
 
       <div className="project">
@@ -31,6 +33,8 @@ function Projects() {
         <p className="project__skill">React.js</p>
         <p className="project__skill">Redux</p>
         <p className="project__skill">Firebase</p>
+        <button className="btn btn--github">GitHub</button>
+        <button className="btn btn--demo">Podgląd</button>
       </div>
 
       <div className="project">
@@ -41,6 +45,8 @@ function Projects() {
         <p className="project__skill">JavaScript</p>
         <p className="project__skill">Sass</p>
         <p className="project__skill">HTML</p>
+        <button className="btn btn--github">GitHub</button>
+        <button className="btn btn--demo">Podgląd</button>
       </div>
 
       <div className="project">
@@ -51,6 +57,8 @@ function Projects() {
         <p className="project__skill">JavaScript</p>
         <p className="project__skill">CSS</p>
         <p className="project__skill">Jquery</p>
+        <button className="btn btn--github">GitHub</button>
+        <button className="btn btn--demo">Podgląd</button>
       </div>
 
       <div className="project">
@@ -61,6 +69,8 @@ function Projects() {
         <p className="project__skill">JavaScript</p>
         <p className="project__skill">CSS</p>
         <p className="project__skill">HTML</p>
+        <button className="btn btn--github">GitHub</button>
+        <button className="btn btn--demo">Podgląd</button>
       </div>
 
     </section>

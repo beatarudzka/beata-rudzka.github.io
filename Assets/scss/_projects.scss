@@ -1,6 +1,6 @@
 .projects{
   grid-column: center-start / center-end;
-  margin: 15rem 0;
+  margin: 10rem 0;
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
@@ -9,4 +9,49 @@
 
 .project{
   background-color: $color-grey-light-1;
+  
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  &__img{
+    width: 100%;
+    grid-column: 1 /-1;
+  }
+  &__name{
+    grid-column: 1 /-1;
+  }
+  &__skill{
+    display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  }
 }
+
+.btn {
+  background-color: $color-primary;
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  font-family: $font-display;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  padding: 1.8rem 3rem;
+  cursor: pointer;
+  transition: all .2s;
+  grid-column: 1 /-1;
+  margin: 1px;
+ 
+
+  &:hover {
+      background-color: $color-primary-dark;
+  }
+  &--github{
+   
+    
+  }
+  &--github{
+  
+   
+  }
+}
+
+  
