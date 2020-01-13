@@ -1,5 +1,6 @@
 .projects{
-  grid-column: center-start / center-end;
+  background-color: $color-grey-dark-1;
+  grid-column: full-start / full-end;
   margin: 15rem 0;
 
   display: grid;
