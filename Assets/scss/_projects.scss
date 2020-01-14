@@ -1,6 +1,5 @@
 .projects{
-  background-color: $color-grey-dark-1;
-  grid-column: full-start / full-end;
+  grid-column: center-start / center-end;
   margin: 15rem 0;
 
   display: grid;
@@ -47,32 +46,6 @@
   }
 }
 
-.btn {
-  background-color: $color-primary;
-  color: #fff;
-  border: none;
-  border-radius: 0;
-  font-family: $font-display;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  padding: 1.8rem 3rem;
-  cursor: pointer;
-  transition: all .2s;
-  grid-column: 1 /-1;
-  margin: 1px;
- 
 
-  &:hover {
-      background-color: $color-primary-dark;
-  }
-  &--github{
-   
-    
-  }
-  &--github{
-  
-   
-  }
-}
 
   

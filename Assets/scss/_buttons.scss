@@ -1,0 +1,38 @@
+.btn {
+  background-color: $color-primary-dark;
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  font-family: $font-display;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  padding: 1.8rem 3rem;
+  cursor: pointer;
+  transition: all .2s;
+  grid-column: 1 /-1;
+  margin: 1px;
+ 
+
+  &:hover {
+      background-color: $color-primary-dark;
+  }
+  &--github{
+   
+    
+  }
+  &--github{
+  
+   
+  }
+
+  &__header{
+    justify-self: start;
+    justify-items: start;
+    grid-column: 1 ;
+  }
+  &__name{
+    justify-self: start;
+    justify-items: start;
+    float:left;
+  }
+}

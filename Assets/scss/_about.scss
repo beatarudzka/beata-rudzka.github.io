@@ -1,4 +1,16 @@
 .about{
   background-color: $color-secondary;
-  grid-column: col-start 5 / full-end;
+  grid-column: col-start 6 / full-end;
+  padding: 3rem;
+
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  grid-row-gap: 2rem;
+
+  @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / -1;
+  }
+
 }

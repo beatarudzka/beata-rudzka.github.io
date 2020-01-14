@@ -1,49 +1,26 @@
-.header {
-  background-color: #e8e9ea;
-  grid-column: full-start / col-end 4;
-  padding: 8rem;
+.header{
+  background-color: $color-primary;
+  grid-column: full-start / col-end 5;
+  padding: 0;
+  position: relative;
 
   display: grid;
-  grid-template-rows: 1fr min-content 4rem min-content;
-  grid-template-columns: max-content;
-  gap:1.5rem;
-  justify-content: start;
+  grid-template-rows: min-content minmax(6rem, min-content) 1fr;
+  grid-template-columns: minmax(min-content, max-content);
+  grid-row-gap: 2.5rem;
+  justify-content: left;
 
-  &__logo{
-    display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-column-gap: 3rem;
-        justify-items: center;
-        align-items: center;
-
-        img {
-            max-height: 2.5rem;
-            max-width: 100%;
-            filter: brightness(70%);
-        }
-    }
-  
-  &__link{
-    display: grid;
-    grid-template-columns: 1fr max-content 1fr;
-    grid-column-gap: 1.5rem;
-    align-items: center;
-
-    font-size: 1.6rem;
-    color: $color-grey-light-2;
-
-    &::before,
-    &::after {
-        content: "";
-        height: 1px;
-        display: block;
-        background-color: currentColor;
-    }
+  @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / -1;
   }
-  &__btn{
-    align-self: center;
-    justify-self: start;
-    justify-items: end;
-    cursor: pointer;
+
+  @media only screen and (max-width: $bp-small) {
+      padding: 0;
   }
+}
+
+.arrow-icon{
+  top:80%;
+  transform: translateY(100%);
+  position: absolute;
 }
