@@ -1,4 +1,8 @@
 .header {
-  background-color: $color-grey-dark-1;
+  background-color: #E4E4E4;
   grid-column: full-start / col-end 6;
+  background-image: url('../../src/img/coffee.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+background-size: cover;
 }
